@@ -157,7 +157,13 @@ def HA(wave_date,wave_height,w=tide60):
         A[:,2*i-1] = np.cos(float(w.iloc[i-1])*t).T
         A[:,2*i] = np.sin(float(w.iloc[i-1])*t).T
     para = np.linalg.lstsq(A,h)[0]
-    return para
+    #--amplitude and angular frequency--
+    amp = np.ones((1,len(w)))
+    pha_ang = amp
+    for ii in range(1,len(w)+1):
+      amp[:,ii-1] = np.sqrt(para[2*ii-1]**2 + para[2*ii]**2)/1000
+      pha_ang[:,ii-1] = np.arctan(para[2*ii]/para[2*ii-1])
+    return para,amp,pha_ang
 
 #---calculate HA wave height---
 # Caculate Wave = HA_wave(start time,end time,parameter)
