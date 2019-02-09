@@ -84,4 +84,4 @@ LWL:朔望平均低潮位
 
 --------------------------
 若內容有誤或更好建議，敬請不吝指教。
-<jiasi,cv03g@g2.nctu.edu.tw>
+<jiasi.cv03g@g2.nctu.edu.tw>
