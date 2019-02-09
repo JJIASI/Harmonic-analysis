@@ -7,7 +7,6 @@ Created on Fri Sep 28 23:26:55 2018
 
 import numpy as np
 import pandas as pd
-import lunardate
 #60 tide
 tide60_name = [
         'Sa',
@@ -136,18 +135,18 @@ tide60.index = tide60_name
 
 
 #----harmonic analyze----
-#HA parameter = HA_tide(Date,Wave Height,speed rate)
+#HA parameter = HA(obs_date,obs_height,w=tide60)
 #Date type: 'yyyymmddhh' Series
 #angular frequency: degree/hour 
-def HA(wave_date,wave_height,w=tide60):
+def HA(obs_date,obs_height,w=tide60):
     #leastsquare
     w = tide60*np.pi/180/3600
-    wave_date = pd.to_datetime(wave_date,format='%Y%m%d%H')
-    wave_date = wave_date.values.astype(np.int64) // 10**9
-    t = pd.Series(wave_date).rename()
+    obs_date = pd.to_datetime(obs_date,format='%Y%m%d%H')
+    obs_date = obs_date.values.astype(np.int64) // 10**9
+    t = pd.Series(obs_date).rename()
     t.reset_index(inplace=True, drop=True)
-    wave_height = wave_height.astype('float64')
-    h = pd.Series(wave_height).rename()
+    obs_height = obs_height.astype('float64')
+    h = pd.Series(obs_height).rename()
     h.reset_index(inplace=True, drop=True)
     nan_ind = np.isnan(h) #nan index
     t = t[~nan_ind]
@@ -166,7 +165,7 @@ def HA(wave_date,wave_height,w=tide60):
     return para,amp,pha_ang
 
 #---calculate HA wave height---
-# Caculate Wave = HA_wave(start time,end time,parameter)
+# Caculate Wave = HA_pred(start time,end time,parameter)
 #Import time pormat : yyyymmddhh
 def HA_pred(start,end,para,w=tide60):
     w = tide60*np.pi/180/3600
@@ -186,18 +185,19 @@ def HA_pred(start,end,para,w=tide60):
 
 
 #---statistic of wave---
-#{MWL,MHWL,MLWL,HWL,LWL} = wave_statistic(wave height)
-def wave_statistic(date_obs,wave_height):
+#{MWL,MHWL,MLWL,HWL,LWL} = tide_statistic(wave height)
+def tide_sta(sta_date,sta_height):
+    import lunardate
     #---peak---
     #toppeak,buttonpeak = peak(wave height)
-    def peak(wave_height):
+    def peak(sta_height):
         delt_w1=0
         peak_ind = []
         peak_t_ind = []
         peak_b_ind = []
         #---anypeak---
-        for j in range(len(wave_height)-1):    
-            delt_w = (wave_height.iloc[j+1]-wave_height.iloc[j])/2
+        for j in range(len(sta_height)-1):    
+            delt_w = (sta_height.iloc[j+1]-sta_height.iloc[j])/2
             if (delt_w*delt_w1) <=0:
                 peak_ind+=[j]
                 if delt_w1>delt_w:
@@ -206,29 +206,29 @@ def wave_statistic(date_obs,wave_height):
                     peak_b_ind +=[j] #---buttonpeak---
             delt_w1 = delt_w
         return peak_t_ind,peak_b_ind
-    peak_t_ind,peak_b_ind = peak(wave_height)
+    peak_t_ind,peak_b_ind = peak(sta_height)
     #lunar HA
     syzygy_date = [1,2,14,15,16,29,30]
     syzygy_ind =[]
-    for i in range(0,len(date_obs)):
-        year= date_obs[i].year
-        month= date_obs[i].month
-        day = date_obs[i].day
+    for i in range(0,len(sta_date)):
+        year= sta_date[i].year
+        month= sta_date[i].month
+        day = sta_date[i].day
         lunar_date_temp = lunardate.LunarDate.fromSolarDate(year,month,day)
         if lunar_date_temp.day in syzygy_date:
             syzygy_ind += [i]
-    peak_t_ind,peak_b_ind = peak(wave_height)
+    peak_t_ind,peak_b_ind = peak(sta_height)
     set1 = set(peak_t_ind)
     set2 = set(syzygy_ind)
     set3 = set(peak_b_ind)
     hwost_ind = set1 & set2
     lwost_ind = set2 & set3
     #---WL---
-    MWL  = np.mean(wave_height)
-    MHWL = np.mean(wave_height[peak_t_ind])
-    MLWL = np.mean(wave_height[peak_b_ind])
-    HWL = np.mean(wave_height[hwost_ind])
-    LWL = np.mean(wave_height[lwost_ind])
+    MWL  = np.mean(sta_height)
+    MHWL = np.mean(sta_height[peak_t_ind])
+    MLWL = np.mean(sta_height[peak_b_ind])
+    HWL = np.mean(sta_height[hwost_ind])
+    LWL = np.mean(sta_height[lwost_ind])
     sta_para = {'MWL':MWL,
                 'MHWL':MHWL,
                 'MLWL':MLWL,
