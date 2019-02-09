@@ -30,3 +30,8 @@ _長潮(以Sa,Solar annual 分潮為例)_
 將所有選定之分潮疊加後，即為該地區的預測潮汐資料。
 ![tide analysis](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/tide%20analysis.png?raw=true)   
 _本程式選用台灣常用60分潮，但若資料長度不足，建議將長週期的分潮剔除。_  
+   
+內容參考 
+[Theory of tides](https://en.wikipedia.org/wiki/Theory_of_tides#Harmonic_analysis "Wikipedia")  
+[潮汐調和分析](https://zh.wikipedia.org/wiki/%E6%BD%AE%E6%B1%90%E8%AA%BF%E5%92%8C%E5%88%86%E6%9E%90 "Wikipedia")  
+------------------------------------
