@@ -11,4 +11,4 @@
 潮汐是由地球、月球的自轉與公轉受到太陽與月球的引力等影響，產生周期性的變化。
 潮汐依其組成分潮成分之差異，主要分為太陽潮 (solar tide)、太陰潮 (lunar tide)、日月潮 (lunisolar tide)、倍潮 (overtide)、混合潮 (compound tide) 等。若依週期來分，主要分為全日潮 (diurnal tides)、半日潮 (semi-diurnal tides)等。  
 本程式選用台灣常用60分潮，但若資料長度不足，建議將長週期的分潮剔除。  
-![tide analysis](/figure/tide analysis.png)
+![tide analysis](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/tide%20analysis.png?raw=true)
