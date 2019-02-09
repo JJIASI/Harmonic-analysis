@@ -13,11 +13,20 @@
 而因為潮汐具有週期性，因此可表示成傅立葉級數(Fourier series)，如下式  
 ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/1ceecb10ad563feabef4732e6f94c6a3f1d3c099)  
 η(t)為潮位函數  
-wn為角頻率
-蒐集某地區潮位資料後，將所有選定之分潮角頻率代入公式，求解出振幅，即可預測未來潮汐資料。
-
-![半日潮]()
-
-
+wn為角頻率  
+t為時間  
+蒐集某地區潮位資料後，將所有選定之分潮角頻率代入公式，求解出振幅，即可預測未來潮汐資料。  
+  
+_半日潮(以S2,Principal solar semidiurnal 分潮為例)_  
+![半日潮](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/S2.png)  
+  
+  
+_全日潮(以K1,Lunar diurnal 分潮為例)_  
+![全日潮](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/K1.png)
+    
+_長潮(以Sa,Solar annual 分潮為例)_
+![長潮](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/Sa.png)
+  
+將所有選定之分潮疊加後，即為該地區的預測潮汐資料。
 ![tide analysis](https://github.com/JJIASI/Harmonic-analysis/blob/master/figure/tide%20analysis.png?raw=true)   
-本程式選用台灣常用60分潮，但若資料長度不足，建議將長週期的分潮剔除。  
+_本程式選用台灣常用60分潮，但若資料長度不足，建議將長週期的分潮剔除。_  
