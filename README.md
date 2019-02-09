@@ -46,9 +46,15 @@ _本程式選用台灣常用60分潮，但若資料長度不足，建議將長�
 `tide_sta` 統計潮汐資料，求得高低潮位及朔望高低潮位，供港灣設計時使用。
 
 ```
-調和參數, 振幅, 相位角 = HA( 時間序列 , 觀測潮位高 , 選定的分潮角頻率 )  
+para, amp, pha_ang = HA(obs_Date , water_level , speed_rate)  
+para:調和參數  
+amp:振幅  
+ph_ang:相位角
+obs_Date:觀測時間
+water_level:觀測水位高
+speed_rate:選定之分潮角頻率，默認為60分潮
   
-_所輸入的時間序列格式需為 'yyyymmddhh'_  
+所輸入的時間序列格式需為 'yyyymmddhh'
 ```
 
 
