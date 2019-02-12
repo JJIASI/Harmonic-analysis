@@ -1,5 +1,5 @@
 # 調和分析應用於潮汐分析
-# Harmonic-analysis for tide analysis   
+# Harmonic-analysis methon for analysis tidel    
 作者:張家羲
 
 --------------------------------------------   
