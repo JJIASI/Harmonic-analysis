@@ -40,13 +40,12 @@ _本程式選用台灣常用60分潮，但若資料長度不足，建議將長�
 ------------------------------------
 # 主程式 ha 功能介紹  
 執行程式前，必要安裝`numpy` , `pandas` , `lunardate`  
-建議安裝 `anaconda pack` 裡面包含如`numpy`、`pandas` 等資料處理與分析常用套件。
-因求解朔望高低潮位需要請先 `pip install lunardate`
-
+需要求解朔望高低潮位請先 `pip install lunardate`  
+  
 `HA` 調和分析，求得調和參數, 振幅, 相位角。
 `HA_pred` 預測潮汐。
-`tide_sta` 統計潮汐資料，求得高低潮位及朔望高低潮位，供港灣設計時使用。
-
+`tide_sta` 統計潮汐資料，求得平均高低潮位及朔望高低潮位，供港灣設計時使用。
+  
 ```
 para, amp, pha_ang = HA(obs_date,obs_height,w=tide60)  
 
