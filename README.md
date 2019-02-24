@@ -13,8 +13,7 @@
 潮汐是由地球、月球的自轉與公轉受到太陽與月球的引力等影響，產生周期性的變化。
 潮汐包含了無限多的分潮，依其組成分潮成分之差異，主要分為太陽潮 (solar tide)、太陰潮 (lunar tide)、日月潮 (lunisolar tide)、倍潮 (overtide)、混合潮 (compound tide) 等。若依週期來分，主要分為全日潮 (diurnal tides)、半日潮 (semi-diurnal tides)等。  
 而因為潮汐具有週期性，因此可表示成傅立葉級數(Fourier series)，如下式  
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-$$ \eta(t) = \sum_{n=1}^{\infty} {A_n cos(\omega_n t)+B_n sim(\omega t)} $$ 
+<a href="https://www.codecogs.com/eqnedit.php?latex=\eta(t)&space;=&space;\sum_{n=1}^{\infty}&space;{A_n&space;cos(\omega_n&space;t)&plus;B_n&space;sim(\omega&space;t)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\eta(t)&space;=&space;\sum_{n=1}^{\infty}&space;{A_n&space;cos(\omega_n&space;t)&plus;B_n&space;sim(\omega&space;t)}" title="\eta(t) = \sum_{n=1}^{\infty} {A_n cos(\omega_n t)+B_n sim(\omega t)}" /></a>
 η(t)為潮位函數  
 wn為角頻率  
 t為時間  
