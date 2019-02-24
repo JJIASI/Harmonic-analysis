@@ -13,7 +13,7 @@
 潮汐是由地球、月球的自轉與公轉受到太陽與月球的引力等影響，產生周期性的變化。
 潮汐包含了無限多的分潮，依其組成分潮成分之差異，主要分為太陽潮 (solar tide)、太陰潮 (lunar tide)、日月潮 (lunisolar tide)、倍潮 (overtide)、混合潮 (compound tide) 等。若依週期來分，主要分為全日潮 (diurnal tides)、半日潮 (semi-diurnal tides)等。  
 而因為潮汐具有週期性，因此可表示成傅立葉級數(Fourier series)，如下式  
-$$ \eta(t) = \sum_{n=1}^{\infty} {A_n cos(\omega_n t)+B_n sim(\omega t)}
+$$ \eta(t) = \sum_{n=1}^{\infty} {A_n cos(\omega_n t)+B_n sim(\omega t)} $$  
 η(t)為潮位函數  
 wn為角頻率  
 t為時間  
